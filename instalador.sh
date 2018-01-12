@@ -23,53 +23,10 @@ cyanClaro="\033[1;36m"
 branco="\033[1;37m"
 
 sleep 1.5s
-echo "$cyan [1] CONFIG-VPS"
-echo "$cyan [2] MINER-BITCOIN"
-echo "$cyan [3] PROXY-CHECKER"
-echo "$cyan [4] CC-GEN"
-echo "$cyan [5] HOST-CHECKER"
+echo "$cyan [1] MINERADOR-BITCOIN"
 read utilitario
 
 if [ "$utilitario" = "1" ]
-then
-echo "\033[44;1;37m Selecione a Versão:     \033[0m "
-sleep 1.5s
-echo "$cyan [1] Shell-Script (Recomendado)"
-echo "$cyan [2] Python "
-read versao
-if [ "$versao" = "1" ]
-then
-sleep 1
-echo "\033[44;1;37m Instalando....     \033[0m "
-sleep 0.5s
-wget https://raw.githubusercontent.com/RaphaelFrajuca/CONFIG-VPS/master/configvps.sh
-mv configvps.sh configvps
-mv configvps /bin/
-chmod a+x /bin/configvps
-echo "\033[44;1;37m Instalado com Sucesso!     \033[0m "
-
-echo "Você Pode Executar o Utilitario Assim:\n"
-echo "$verde configvps\033[0m $vermelho IP-VPS \033[0m "
-fi
-
-if [ "$versao" = "2" ]
-then
-sleep 1
-echo "\033[44;1;37m Instalando....     \033[0m "
-sleep 0.5s
-wget https://raw.githubusercontent.com/RaphaelFrajuca/CONFIG-VPS/master/configvps.py
-mv configvps.py configvps
-mv configvps /bin/
-chmod a+x /bin/configvps
-echo "\033[44;1;37m Instalado com Sucesso!     \033[0m "
-
-echo "Você Pode Executar o Utilitario Assim:\n"
-echo "$verde configvps\033[0m"
-fi
-
-fi
-
-if [ "$utilitario" = "2" ]
 then
 sleep 1
 echo "\033[44;1;37m Instalando....     \033[0m "
@@ -78,59 +35,7 @@ wget https://raw.githubusercontent.com/aklebio/Miner-BTC/master/miner.sh
 echo "\033[44;1;37m Instalado com Sucesso!     \033[0m "
 
 echo "Você Pode Executar o Utilitario Assim:\n"
-echo "sudo sh$verde miner.sh CARTEIRA BITCOIN\033[0m"
-fi
-
-if [ "$utilitario" = "3" ]
-then
-sleep 1
-echo "\033[44;1;37m Instalando....     \033[0m "
-sleep 0.5s
-wget https://raw.githubusercontent.com/RaphaelFrajuca/CONFIG-VPS/master/proxy.sh
-mv proxy.sh proxy
-mv proxy /bin/
-echo "\033[44;1;37m Instalado com Sucesso!     \033[0m "
-
-echo "Você Pode Executar o Utilitario Assim:\n"
-echo "sudo $verde proxy ARQUIVO/CAMINHO COM A LISTA DE PROXYS\033[0m"
-fi
-
-if [ "$utilitario" = "4" ]
-then
-sleep 1
-echo "\033[44;1;37m Instalando....     \033[0m "
-sleep 0.5s
-apt-get install git python wget -y > /dev/null
-wget https://raw.githubusercontent.com/RaphaelFrajuca/CONFIG-VPS/master/cc.sh
-mv cc.sh ccgen
-mv ccgen /bin/
-chmod a+x /bin/ccgen
-mkdir /etc/ccgen/
-wget https://raw.githubusercontent.com/RaphaelFrajuca/CONFIG-VPS/master/gen.py
-mv gen.py /etc/ccgen/
-git clone https://github.com/benhodgson/baluhn.git luhn
-cd luhn && python setup.py install
-rm -rf luhn
-echo "\033[44;1;37m Instalado com Sucesso!     \033[0m "
-
-echo "Você Pode Executar o Utilitario Assim:\n"
-echo "sudo $verde ccgen \033[0m BIN NUMERO-DE-CCS 'SEPARADOR'"
-fi
-
-if [ "$utilitario" = "5" ]
-then
-sleep 1
-echo "\033[44;1;37m Instalando....     \033[0m "
-sleep 0.5s
-apt-get install git python wget -y > /dev/null
-wget https://raw.githubusercontent.com/RaphaelFrajuca/CONFIG-VPS/master/hosts.sh
-mv hosts.sh hosts
-mv hosts /bin/
-chmod a+x /bin/hosts
-echo "\033[44;1;37m Instalado com Sucesso!     \033[0m "
-
-echo "Você Pode Executar o Utilitario Assim:\n"
-echo "sudo $verde hosts \033[0m LISTA-COM-HOSTS"
+echo "sudo sh$verde miner.sh ENDEREÇO CARTEIRA BITCOIN\033[0m"
 fi
 
 exit 0
